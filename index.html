@@ -1,0 +1,417 @@
+<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Motorcycle & Auto Supply</title><style>
+:root{--red:#ef2026;--dark:#101923;--bg:#f4f6f8;--card:#fff;--muted:#66717c}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#111}.top{background:var(--dark);color:#fff;padding:16px;position:sticky;top:0;z-index:5}.brand{font-weight:900;font-size:22px}.brand b{color:var(--red)}.search{margin-top:12px;width:100%;padding:14px;border-radius:12px;border:0;font-size:16px}.wrap{max-width:1050px;margin:auto}.hero{margin:14px;background:linear-gradient(120deg,#111,#2b2f35);color:white;border-radius:18px;padding:26px}.hero h1{margin:0 0 8px;font-size:30px}.btn{border:0;background:var(--red);color:#fff;padding:12px 16px;border-radius:10px;font-weight:800;cursor:pointer}.section{padding:10px 14px}.section h2{margin:8px 0 12px}.finder,.panel{background:#fff;padding:16px;border-radius:16px;box-shadow:0 2px 12px #0001}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.cat{background:#fff;border-radius:14px;padding:18px 8px;text-align:center;font-weight:800;box-shadow:0 2px 10px #0001}.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.product{background:white;border-radius:14px;padding:13px;box-shadow:0 2px 10px #0001}.photo{height:120px;border-radius:10px;background:#edf0f2;display:grid;place-items:center;font-size:45px}.price{font-size:20px;font-weight:900}.stock{color:#07963c;font-size:13px}.row{display:flex;gap:10px;flex-wrap:wrap}.field{flex:1;min-width:150px}input,select,textarea{width:100%;padding:12px;border:1px solid #ccd3d9;border-radius:9px;margin:5px 0 10px;font-size:15px}.nav{position:sticky;bottom:0;background:#fff;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:10px}.nav button{border:0;background:none;font-weight:700}.hidden{display:none}.adminbar{display:flex;justify-content:space-between;align-items:center}.badge{background:#e9eef2;padding:5px 8px;border-radius:8px;font-size:12px}.danger{background:#555}.cartline{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:9px 0}@media(min-width:700px){.hero{padding:38px}.hero h1{font-size:40px}}
+
+.service-card{background:#fff;border-radius:14px;padding:15px;box-shadow:0 2px 10px #0001;border-top:4px solid var(--red)}
+.service-card h3{margin:6px 0}.service-icon{font-size:34px}.service-price{font-weight:900;font-size:18px}
+.quick{display:flex;gap:8px;flex-wrap:wrap}.quick button{border:1px solid #d7dde2;background:#fff;padding:9px;border-radius:9px}
+.chatbox{height:260px;overflow:auto;background:#f6f8fa;border:1px solid #dde3e8;border-radius:12px;padding:10px;margin-bottom:10px}
+.msg{max-width:85%;padding:9px 11px;border-radius:12px;margin:7px 0}.bot{background:#fff;border:1px solid #e0e5e9}.user{background:#ffe7e8;margin-left:auto}
+.stat{background:#fff;padding:12px;border-radius:12px;box-shadow:0 2px 8px #0001}.stat b{font-size:20px}
+.smallbtn{padding:7px 9px;border:0;border-radius:8px;cursor:pointer}.service-nav{display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:520px){.brand{font-size:19px}.hero h1{font-size:26px}.nav button{font-size:12px}}
+
+.thumb{width:100%;height:140px;object-fit:cover;border-radius:10px;background:#edf0f2}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.tablewrap{overflow:auto}.reporttable{width:100%;border-collapse:collapse}.reporttable th,.reporttable td{padding:9px;border-bottom:1px solid #e5e8eb;text-align:left;white-space:nowrap}
+.notice{padding:10px;border-radius:10px;background:#fff4d8;margin:8px 0}.ok{background:#e6f7ec}.filelabel{display:block;border:1px dashed #aeb8c0;padding:10px;border-radius:9px;margin:5px 0 10px}
+
+.fuelhero{background:linear-gradient(135deg,#075d31,#0f8a4c);color:#fff;border-radius:16px;padding:18px}
+.fuelgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.fuelprice{background:#eff8f2;border:1px solid #d9eadf;border-radius:12px;padding:12px;text-align:center}.fuelprice b{display:block;color:#0b6b3a}
+.fuelbox{border:1px solid #dce6df;background:#fafcfb;padding:12px;border-radius:12px;margin-top:10px}
+@media(max-width:600px){.fuelgrid{grid-template-columns:1fr}}
+
+/* v1.3 Finance mobile improvements */
+.finance-cards{display:grid;gap:10px}
+.finance-card{border:1px solid #e5e8eb;border-radius:14px;padding:12px;background:#fff}
+.finance-card-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:8px}
+.finance-card-amount{font-size:1.18rem;font-weight:800;white-space:nowrap}
+.finance-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;font-size:.92rem}
+.finance-card-grid b{display:block;font-size:.76rem;color:#68707a;margin-bottom:2px}
+.finance-delete{margin-top:10px;width:100%;background:#b42318;color:#fff;border:0;border-radius:9px;padding:9px;font-weight:700}
+@media(max-width:700px){
+  #financePanel .kpis{grid-template-columns:1fr 1fr}
+  #financePanel .stat{min-width:0;padding:11px;font-size:.88rem}
+  #financePanel .stat b{font-size:1.08rem}
+  .finance-card-grid{grid-template-columns:1fr}
+}
+
+</style>
+<!-- Finance clean/stability build v1.5.3: 2026-10-04 -->
+
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#b20d13">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Gamay Auto Supply">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
+</head><body>
+
+<div id="singleVersionNotice" style="max-width:1100px;margin:8px auto;padding:10px 12px;border:2px solid #198754;border-radius:10px;background:#fff;text-align:center;font-weight:700;">
+MOTORCYCLE & AUTO SUPPLY — ONLINE PILOT
+</div>
+
+
+<div class='wrap'><header class='top'><div class='brand'>MOTORCYCLE <b>& AUTO SUPPLY</b></div><input id='search' class='search' placeholder='Search parts, brand, vehicle or part number...' oninput='renderProducts()'></header>
+<main id='store'><section class='hero'><h1>COMPLETE PARTS FOR YOUR RIDE & DRIVE</h1><p>Motorcycle parts • Auto parts • Oils • Tires • Batteries • Accessories</p><button class='btn' onclick="document.getElementById('products').scrollIntoView()">SHOP NOW</button></section>
+<section class='section'><div class='finder'><h2>Find Parts for Your Vehicle</h2><div class='row'><div class='field'><select id='vehicle'><option>Motorcycle</option><option>Car/Truck</option></select></div><div class='field'><input id='make' placeholder='Make e.g. Honda'></div><div class='field'><input id='model' placeholder='Model e.g. TMX 155'></div><div class='field'><input id='year' placeholder='Year'></div></div><button class='btn' onclick='findCompatible()'>Find Compatible Parts</button></div></section>
+<section class='section'><div class='panel'>
+<h2>Sales & Services</h2><p>Shop parts and supplies, inquire about vulcanizing, or request minor motorcycle repair.</p>
+<div class='grid'>
+<div class='cat' onclick="show('store');document.getElementById('products').scrollIntoView()">🛒<br>Parts & Supplies</div>
+<div class='cat' onclick="document.getElementById('services').scrollIntoView()">🛞<br>Vulcanizing</div>
+<div class='cat' onclick="document.getElementById('services').scrollIntoView()">🔧<br>Minor Repairs</div>
+<div class='cat' onclick="show('fuelPage')">⛽<br>Fuel Supply</div>
+<div class='cat' onclick="show('fuelPage');setTimeout(()=>{fuelOrderType.value='dispenser';switchUnifiedFuelType()},20)">⛽<br>Dispenser Supply</div>
+<div class='cat' onclick="show('inquiryPage')">💬<br>Ask / Inquire</div>
+</div></div></section>
+<section class='section' id='services'><h2>Available Services</h2><div class='products' id='serviceGrid'></div></section>
+<section class='section'><h2>Shop by Category</h2><div class='grid' id='cats'></div></section><section class='section' id='products'><h2>Featured Products</h2><div class='products' id='productGrid'></div></section></main>
+<main id='cartPage' class='section hidden'>
+<div class='panel'><h2>Your Cart</h2><div id='cartLines'></div><h3 id='total'></h3><button class='btn' onclick="show('checkoutPage')">PROCEED TO CHECKOUT</button></div></main>
+
+<main id='checkoutPage' class='section hidden'><div class='panel'><h2>Checkout</h2>
+<div class='row'><div class='field'><label>Customer Name<input id='orderName'></label></div><div class='field'><label>Contact Number<input id='orderContact'></label></div></div>
+<label>Address / Delivery Details<textarea id='orderAddress'></textarea></label>
+<div class='row'><div class='field'><label>Fulfillment<select id='fulfillment'><option>Store Pickup</option><option>Local Delivery</option></select></label></div>
+<div class='field'><label>Payment Method<select id='paymentMethod' onchange='toggleProof()'><option>Cash on Pickup</option><option>Cash on Delivery</option><option>GCash</option></select></label></div></div>
+<div id='proofWrap' class='hidden'><label>GCash Proof of Payment<input id='gcashProof' type='file' accept='image/*'></label><div class='notice'>Uploading a screenshot does not automatically verify payment. Admin must confirm it.</div></div>
+<label>Order Notes<textarea id='orderNotes' placeholder='Optional instructions'></textarea></label>
+<h3 id='checkoutTotal'></h3><button class='btn' onclick='placeOrder()'>PLACE ORDER</button>
+</div></main>
+
+<main id='trackPage' class='section hidden'><div class='panel'><h2>Track Order</h2>
+<div class='row'><div class='field'><input id='trackNo' placeholder='Enter order number'></div><div class='field'><input id='trackContact' placeholder='Contact number used in the order'></div><button class='btn' onclick='lookupOrder()'>TRACK</button></div><div id='trackResult'></div></div></main>
+
+<main id='posPage' class='section hidden'><div class='panel'><h2>Counter / POS Sale</h2>
+<div class='row'><div class='field'><label>Customer (optional)<input id='posCustomer'></label></div><div class='field'><label>Product<select id='posProduct'></select></label></div><div class='field'><label>Quantity<input id='posQty' type='number' min='1' value='1'></label></div></div>
+<div class='row'><div class='field'><label>Payment<select id='posPayment'><option>Cash</option><option>GCash</option><option>Other</option></select></label></div></div>
+<button class='btn' onclick='recordPOSSale()'>RECORD COUNTER SALE</button></div></main>
+
+<main id='reportsPage' class='section hidden'><div class='panel'><h2>Sales & Service Reports</h2>
+<div class='notice ok'><b>Live reporting</b><br><small>Reports use Motorcycle & Auto Supply pilot transactions plus completed fuel sales from Oct. 4, 2026, 4:26 PM onward. Earlier fuel records remain safely stored but are excluded from this pilot report.</small></div>
+<div class='kpis' id='reportKpis'></div></div><br>
+<div class='panel'><h3>Recent Product Sales</h3><div id='salesReport' class='tablewrap'></div></div><br>
+<div class='panel'><h3>Recent Service Transactions</h3><div id='serviceReport' class='tablewrap'></div></div><br><div class='panel'><h3>Recent Completed Fuel Sales</h3><div id='fuelSalesReport' class='tablewrap'></div></div></main>
+
+<main id='fuelPage' class='section hidden'>
+<div class='fuelhero'><h2 style='margin:0;color:white'>⛽ Fuel & Dispenser Supply</h2><p>Regular • Premium • Diesel • Fuel Dispensers</p></div>
+<div class='panel' style='margin-top:14px'><h3>Customer Information</h3>
+<div class='row'><div class='field'><label>Full Name<input id='fuelCustName'></label></div><div class='field'><label>Mobile Number<input id='fuelMobile'></label></div></div>
+<label>Address / Delivery Location<textarea id='fuelAddress'></textarea></label>
+<label>What would you like to order?<select id='fuelOrderType' onchange='switchUnifiedFuelType()'><option value='fuel'>Fuel</option><option value='dispenser'>Fuel Dispenser</option></select></label>
+</div>
+<div id='unifiedFuelSection' class='panel' style='margin-top:14px'><h3>Fuel Order</h3>
+<div class='fuelgrid'><div class='fuelprice'><b>Regular</b>₱<span id='uReg'>Loading...</span>/L</div><div class='fuelprice'><b>Premium</b>₱<span id='uPrem'>Loading...</span>/L</div><div class='fuelprice'><b>Diesel</b>₱<span id='uDiesel'>Loading...</span>/L</div></div>
+<div class='row' style='margin-top:12px'><div class='field'><label>Fuel Type<select id='uFuelType' onchange='calcUnifiedFuel()'><option>Regular</option><option>Premium</option><option>Diesel</option></select></label></div><div class='field'><label>Order By<select id='uFuelMode' onchange='toggleUnifiedFuelMode()'><option value='liters'>Liters</option><option value='amount'>Peso Amount</option></select></label></div></div>
+<div id='uLitersBox'><label>Number of Liters<input id='uLiters' type='number' min='0' step='.01' oninput='calcUnifiedFuel()'></label></div>
+<div id='uAmountBox' class='hidden'><label>Amount in Pesos<input id='uAmount' type='number' min='0' step='.01' oninput='calcUnifiedFuel()'></label></div>
+<div class='notice ok' id='uFuelTotal'>Total: ₱0.00</div><div id='uFuelInfo'></div></div>
+<div id='unifiedDispSection' class='panel hidden' style='margin-top:14px'><h3>Fuel Dispenser Order</h3>
+<label>Dispenser Model<select id='uDispModel' onchange='renderUnifiedHoses()'><option value='single-no-tank'>Single Hose – No Built-in Tank</option><option value='single-tank'>Single Hose – With Built-in Tank</option><option value='two-hose'>2 Hoses – Built-in Tank for Each Hose</option><option value='three-hose'>3 Hoses – Built-in Tank for Each Hose</option></select></label>
+<div id='uHoses'></div><label>Quantity<input id='uDispQty' type='number' min='1' value='1'></label><label>Special Instructions / Specifications<textarea id='uDispNotes'></textarea></label></div>
+<div class='panel' style='margin-top:14px'><h3>Fulfillment & Payment</h3><div class='row'><div class='field'><select id='uFuelFulfillment'><option>Pickup</option><option>Delivery</option></select></div><div class='field'><select id='uFuelPayment'><option>Cash</option><option>GCash</option><option>Bank Transfer</option><option>To Be Arranged</option></select></div></div>
+<button id='uFuelSubmit' class='btn' onclick='placeUnifiedFuelOrder(event)' disabled>LOADING LIVE PRICES...</button></div>
+</main>
+
+<main id='fuelAdminPage' class='section hidden'>
+<div class='adminbar'><h2>Admin • Fuel & Dispenser Operations</h2><span class='badge'>Integrated online management</span></div>
+<div class='panel'><h3>Fuel Price Management</h3><div class='fuelgrid'><label>Regular ₱/L<input id='aReg' type='number' step='.01'></label><label>Premium ₱/L<input id='aPrem' type='number' step='.01'></label><label>Diesel ₱/L<input id='aDiesel' type='number' step='.01'></label></div>
+<div class='notice ok'>This page now uses the same authorized Admin session. Fuel prices and order status can be managed here without opening the old Fuel Admin file.</div>
+<div class='row'><button class='btn' onclick='saveIntegratedFuelPrices()'>SAVE LIVE PRICES</button><button class='btn secondary' onclick='loadIntegratedFuelAdmin()'>REFRESH ORDERS</button></div></div>
+<div class='panel' style='margin-top:14px'><h3>Fuel & Dispenser Orders</h3><input id='fuelAdminSearch' placeholder='Search order number or customer' oninput='renderIntegratedFuelOrders()'><div id='integratedFuelOrders' style='margin-top:12px'></div></div>
+</main>
+<main id='servicePage' class='section hidden'>
+<div class='panel'><h2>Service Request</h2><p id='selectedServiceText'></p>
+<input type='hidden' id='selectedServiceId'>
+<div class='row'><div class='field'><label>Customer Name<input id='custName'></label></div><div class='field'><label>Contact Number<input id='custContact'></label></div></div>
+<div class='row'><div class='field'><label>Motorcycle Make<input id='bikeMake' placeholder='e.g. Honda'></label></div><div class='field'><label>Model<input id='bikeModel' placeholder='e.g. TMX 155'></label></div><div class='field'><label>Plate No. (optional)<input id='plate'></label></div></div>
+<label>Problem / Customer Concern<textarea id='concern' placeholder='Describe the problem or service needed'></textarea></label>
+<button class='btn' onclick='saveServiceRequest()'>SUBMIT SERVICE REQUEST</button>
+</div></main>
+
+<main id='inquiryPage' class='section hidden'><div class='panel'>
+<h2>💬 Parts & Service Inquiry</h2>
+<p>Ask about product availability, prices, vulcanizing services, or minor motorcycle repairs.</p>
+<div class='quick'><button onclick="quickAsk('What vulcanizing services are available?')">Vulcanizing</button><button onclick="quickAsk('What minor motorcycle repairs are available?')">Minor Repairs</button><button onclick="quickAsk('How can I find a motorcycle part?')">Find a Part</button><button onclick="quickAsk('What products are low or out of stock?')">Stock Inquiry</button></div>
+<div id='chatBox' class='chatbox'><div class='msg bot'>Hello! I can answer from this store's current products and service list. For uncertain mechanical problems, I will recommend store inspection instead of guessing.</div></div>
+<div class='row'><div class='field'><input id='chatInput' placeholder='Type your inquiry...' onkeydown="if(event.key==='Enter')sendChat()"></div><button class='btn' onclick='sendChat()'>SEND</button></div>
+</div></main>
+
+<main id='serviceAdmin' class='section hidden'><div class='adminbar'><h2>Admin • Services</h2><span class='badge'>Sales & Service</span></div>
+<div class='panel'><h3>Add / Update Service</h3><input type='hidden' id='serviceEditId'>
+<div class='row'><div class='field'><label>Service Name<input id='sname'></label></div><div class='field'><label>Type<select id='stype'><option>Vulcanizing</option><option>Minor Motorcycle Repair</option><option>Other Service</option></select></label></div><div class='field'><label>Starting/Standard Charge<input id='sprice' type='number'></label></div></div>
+<div class='row'><div class='field'><label>Estimated Time<input id='stime' placeholder='e.g. 20-30 minutes'></label></div><div class='field'><label><input id='sactive' type='checkbox' checked style='width:auto'> Available / Active</label></div></div>
+<label>Description<textarea id='sdesc'></textarea></label><button class='btn' onclick='saveService()'>SAVE SERVICE</button> <button class='btn danger' onclick='clearServiceForm()'>CLEAR</button></div>
+<br><div class='panel'><h3>Service List</h3><div id='serviceInventory'></div></div>
+<br><div class='panel'><h3>Customer Service Requests</h3><div id='serviceRequests'></div></div>
+<br><div class='panel'><h3>Record Completed Service / Repair</h3>
+<div class='row'><div class='field'><label>Customer<input id='txCustomer'></label></div><div class='field'><label>Vehicle<input id='txVehicle' placeholder='Honda TMX 155'></label></div><div class='field'><label>Plate (optional)<input id='txPlate'></label></div></div>
+<div class='row'><div class='field'><label>Service<select id='txService'></select></label></div><div class='field'><label>Mechanic / Technician<input id='txTech'></label></div><div class='field'><label>Labor / Service Charge<input id='txLabor' type='number'></label></div></div>
+<div class='row'><div class='field'><label>Part Used<select id='txPart'><option value=''>None</option></select></label></div><div class='field'><label>Qty Used<input id='txQty' type='number' value='0'></label></div><div class='field'><label>Payment<select id='txPayment'><option>Cash</option><option>GCash</option><option>Other</option></select></label></div></div>
+<label>Findings / Work Performed<textarea id='txNotes'></textarea></label><button class='btn' onclick='recordServiceTransaction()'>RECORD COMPLETED SERVICE</button></div>
+<br><div class='panel'><h3>Service Transaction History</h3><div id='serviceHistory'></div></div>
+</main>
+<main id='admin' class='section hidden'><div class='adminbar'><h2>Admin • Products & Inventory</h2><span class='badge'>Online Administration</span></div>
+<div id='adminLoginPanel' class='panel'>
+<h3>Admin Login</h3><p>Use your authorized Supabase admin email and password.</p>
+<label>Email<input id='masAdminEmail' type='email' autocomplete='username'></label>
+<label>Password<input id='masAdminPassword' type='password' autocomplete='current-password'></label>
+<button class='btn' onclick='adminLogin()'>LOGIN</button>
+</div>
+<div id='adminSessionPanel' class='panel hidden' style='margin-top:10px'><b id='adminSessionText'>Admin session active</b> <button class='smallbtn danger' onclick='adminLogout()'>LOGOUT</button></div>
+<div id='adminProtected' class='hidden'>
+<div class='panel service-nav'><button class='btn' onclick="show('serviceAdmin')">MANAGE SERVICES & REPAIRS</button><button class='btn' onclick="show('posPage')">COUNTER / POS SALE</button><button class='btn' onclick="show('reportsPage')">REPORTS</button><button class='btn' onclick="show('fuelAdminPage')">FUEL OPERATIONS</button><button class='btn danger' onclick="show('inquiryPage')">OPEN INQUIRY CHAT</button><button class='btn danger' onclick="clearTestTransactions()">CLEAR / RESET ONLINE PILOT TRANSACTIONS</button></div><br>
+<div class='panel'><h3>Online Orders</h3><div id='adminOrders'></div></div><br><div class='panel'><h3>Add / Update Product</h3><input type='hidden' id='editId'><div class='row'><div class='field'><label>Product Name<input id='pname'></label></div><div class='field'><label>SKU / Part No.<input id='sku'></label></div><div class='field'><label>Brand<input id='brand'></label></div></div><div class='row'><div class='field'><label>Category<select id='category'></select></label></div><div class='field'><label>Cost Price<input id='cost' type='number'></label></div><div class='field'><label>Selling Price<input id='price' type='number'></label></div><div class='field'><label>Stock<input id='stock' type='number'></label></div><div class='field'><label>Reorder Level<input id='reorder' type='number' value='3'></label></div></div><h4>Vehicle Compatibility</h4><div class='row'><div class='field'><input id='compatMake' placeholder='Make'></div><div class='field'><input id='compatModel' placeholder='Model'></div><div class='field'><input id='compatYear' placeholder='Year/range'></div></div><label>Product Photo <span class='badge'>stored on this device</span><input id='pphoto' type='file' accept='image/*' onchange='previewProductPhoto(event)'></label>
+<img id='photoPreview' class='thumb hidden' alt='Product preview'>
+<label>Description<textarea id='desc'></textarea></label><div class='row'><label><input id='active' type='checkbox' checked style='width:auto'> Active</label><label><input id='featured' type='checkbox' checked style='width:auto'> Featured</label><label><input id='newarrival' type='checkbox' style='width:auto'> New Arrival</label></div><br><button class='btn' onclick='saveProduct()'>SAVE PRODUCT</button> <button class='btn danger' onclick='clearForm()'>CLEAR</button></div><br><div class='panel'><h3>Inventory</h3><div id='inventory'></div></div><br>
+<div class='panel' id='financePanel'><h3>Finance / Cash Flow</h3>
+<div class='notice ok'><b>Live cash position</b><br><small>Completed product, POS, service and pilot fuel sales are included automatically. Online Cash on Pickup orders remain Pending Collection until payment is confirmed. Manual cash movements below are stored online for authorized admins.</small></div>
+<div class='kpis' id='financeKpis'></div>
+<h4>Record Cash Movement / Credit</h4>
+<div class='row'><div class='field'><label>Transaction Type<select id='finType' onchange='updateFinanceHint()'><option value='EXPENSE'>Expense / Cash Out</option><option value='WITHDRAWAL'>Owner Withdrawal</option><option value='CASH_IN'>Other Cash In</option><option value='BORROWED_CASH'>Borrowed Cash / Payable</option><option value='PAYABLE_PAYMENT'>Payable Payment</option><option value='RECEIVABLE'>Customer Receivable / Credit</option><option value='RECEIVABLE_PAYMENT'>Receivable Payment</option></select></label></div><div class='field'><label>Customer / Payee / Source<input id='finParty' placeholder='Name (when applicable)'></label></div></div>
+<div class='row'><div class='field'><label>Amount<input id='finAmount' type='number' min='0.01' step='0.01' placeholder='0.00'></label></div><div class='field'><label>Payment Method<select id='finPayment'><option>Cash</option><option>GCash</option><option>Bank Transfer</option><option>Other</option></select></label></div><div class='field'><label>Reference No. (optional)<input id='finReference'></label></div></div>
+<label>Purpose / Notes<textarea id='finNotes' placeholder='Example: electricity, supplies, owner withdrawal, borrowed cash, customer credit'></textarea></label>
+<div id='financeHint' class='notice'></div><div id='financeTypeConfirm' class='notice ok'></div><button class='btn' id='finSaveBtn' onclick='saveFinanceTransaction()'>SAVE FINANCE TRANSACTION</button> <button class='btn danger' onclick='clearFinanceForm()'>CLEAR</button>
+<h4 style='margin-top:24px'>Recent Finance Transactions</h4><div id='financeHistory' class='tablewrap'></div>
+</div></div></main>
+<nav class='nav'><button onclick="show('store')">🏠 Home</button><button onclick="show('store');setTimeout(()=>document.getElementById('services').scrollIntoView(),30)">🔧 Services</button><button onclick="show('fuelPage')">⛽ Fuel</button><button onclick="show('cartPage')">🛒 Cart <span id='cartCount'>0</span></button><button onclick="show('trackPage')">📦 Track</button><button onclick="show('inquiryPage')">💬 Inquiry</button><button onclick="show('admin')">⚙ Admin</button></nav></div>
+<script>
+const categories=['Motorcycle Parts','Auto Parts','Oils & Lubricants','Tires & Tubes','Batteries','Engine Parts','Brake Parts','Electrical Parts','Suspension','Lights & Bulbs','Accessories','Tools & Supplies'];
+const SB_URL='https://jzujywhmvwknzzjpcofo.supabase.co';
+const SB_KEY='sb_publishable_SjKg7SU-ih9PU8hEIjwKoA_co4Dvw2p';
+const CART_KEY='mas_online_cart_v1';
+const SESSION_KEY='mas_online_admin_session_v1';
+let products=[],adminProducts=[],services=[],adminServices=[],orders=[],sales=[],serviceReq=[],serviceTx=[];
+let cart=JSON.parse(localStorage.getItem(CART_KEY)||'[]');
+let adminSession=JSON.parse(localStorage.getItem(SESSION_KEY)||'null');
+let pendingProductImage='';
+let unifiedFuelPrices={Regular:null,Premium:null,Diesel:null};
+
+function money(n){return '₱'+Number(n||0).toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})}
+function escapeText(t){return String(t??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function persistCart(){localStorage.setItem(CART_KEY,JSON.stringify(cart))}
+function authHeaders(useAdmin=false, extra={}){let h={apikey:SB_KEY,...extra};if(useAdmin&&adminSession?.access_token)h.Authorization='Bearer '+adminSession.access_token;return h}
+async function parseResponse(r){let txt=await r.text();let data=txt?(()=>{try{return JSON.parse(txt)}catch{return txt}})():null;if(!r.ok){let msg=(data&&typeof data==='object'&&(data.message||data.error_description||data.hint))||String(data||r.statusText);throw new Error(msg)}return data}
+async function rpc(name,body={},useAdmin=false){let r=await fetch(`${SB_URL}/rest/v1/rpc/${name}`,{method:'POST',headers:authHeaders(useAdmin,{'Content-Type':'application/json'}),body:JSON.stringify(body),cache:'no-store'});return parseResponse(r)}
+async function tableGet(path,useAdmin=false){let r=await fetch(`${SB_URL}/rest/v1/${path}`,{headers:authHeaders(useAdmin),cache:'no-store'});return parseResponse(r)}
+async function tableWrite(path,method,body,useAdmin=true,prefer='return=representation'){let r=await fetch(`${SB_URL}/rest/v1/${path}`,{method,headers:authHeaders(useAdmin,{'Content-Type':'application/json',Prefer:prefer}),body:JSON.stringify(body)});return parseResponse(r)}
+
+async function refreshAdminSession(){if(!adminSession?.refresh_token)return false;try{let r=await fetch(`${SB_URL}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:{apikey:SB_KEY,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:adminSession.refresh_token})});let d=await parseResponse(r);adminSession={...d,expires_at:Math.floor(Date.now()/1000)+(d.expires_in||3600)};localStorage.setItem(SESSION_KEY,JSON.stringify(adminSession));return true}catch(e){adminSession=null;localStorage.removeItem(SESSION_KEY);return false}}
+async function ensureAdminSession(){if(!adminSession?.access_token)return false;let exp=Number(adminSession.expires_at||0);if(exp&&exp-Math.floor(Date.now()/1000)<60){if(!await refreshAdminSession())return false}try{let rows=await tableGet('mas_admins?select=user_id&limit=1',true);return Array.isArray(rows)&&rows.length>0}catch(e){return false}}
+async function adminLogin(){let email=masAdminEmail.value.trim(),password=masAdminPassword.value;if(!email||!password){alert('Enter the authorized admin email and password.');return}try{let r=await fetch(`${SB_URL}/auth/v1/token?grant_type=password`,{method:'POST',headers:{apikey:SB_KEY,'Content-Type':'application/json'},body:JSON.stringify({email,password})});let d=await parseResponse(r);adminSession={...d,expires_at:Math.floor(Date.now()/1000)+(d.expires_in||3600)};localStorage.setItem(SESSION_KEY,JSON.stringify(adminSession));if(!await ensureAdminSession()){adminLogout(false);alert('Login succeeded, but this account is not authorized for Motorcycle & Auto Supply administration.');return}masAdminPassword.value='';await refreshAdminState();alert('Admin login successful.')}catch(e){alert('Admin login failed: '+e.message)}}
+function adminLogout(showMsg=true){adminSession=null;localStorage.removeItem(SESSION_KEY);adminProtected.classList.add('hidden');adminSessionPanel.classList.add('hidden');adminLoginPanel.classList.remove('hidden');if(showMsg)alert('Admin logged out.')}
+async function refreshAdminState(){let ok=await ensureAdminSession();adminLoginPanel.classList.toggle('hidden',ok);adminSessionPanel.classList.toggle('hidden',!ok);adminProtected.classList.toggle('hidden',!ok);if(!ok)return;adminSessionText.textContent='Admin session active';await loadAdminData()}
+
+function mapPublicProduct(p){return {id:Number(p.id),name:p.name,sku:p.sku,brand:p.brand,category:p.category,price:Number(p.price),stock:Number(p.available_stock),reorder:Number(p.reorder_level),make:p.make||'',model:p.model||'',year:p.year||'',desc:p.description||'',image:p.image_url||'',active:true,featured:!!p.featured,newarrival:!!p.new_arrival}}
+function mapAdminProduct(p){return {id:Number(p.id),name:p.name,sku:p.sku,brand:p.brand,category:p.category,cost:Number(p.cost),price:Number(p.price),stock:Number(p.stock),reorder:Number(p.reorder_level),make:p.make||'',model:p.model||'',year:p.year||'',desc:p.description||'',image:p.image_url||'',active:!!p.active,featured:!!p.featured,newarrival:!!p.new_arrival}}
+function mapService(s){return {id:Number(s.id),name:s.name,type:s.service_type,price:Number(s.standard_charge),time:s.estimated_time||'',desc:s.description||'',active:true}}
+function mapAdminService(s){return {id:Number(s.id),name:s.name,type:s.service_type,price:Number(s.standard_charge),time:s.estimated_time||'',desc:s.description||'',active:!!s.active}}
+
+async function loadPublicData(){try{let [pp,ss]=await Promise.all([rpc('mas_list_products'),rpc('mas_list_services')]);products=(pp||[]).map(mapPublicProduct);services=(ss||[]).map(mapService);renderProducts();renderServices();refreshPOS();refreshServiceSelectors();updateCart()}catch(e){productGrid.innerHTML='<p>Online store data could not be loaded. Check the internet connection.</p>';console.error(e)}}
+async function loadAdminData(){if(!await ensureAdminSession())return;try{let [pp,ss,oo,rr,tt]=await Promise.all([
+ tableGet('mas_products?select=*&order=name.asc',true),
+ tableGet('mas_services?select=*&order=service_type.asc,name.asc',true),
+ tableGet('mas_orders?select=*,mas_order_items(*)&order=created_at.desc',true),
+ tableGet('mas_service_requests?select=*&order=created_at.desc',true),
+ tableGet('mas_service_transactions?select=*&order=created_at.desc',true)
+]);adminProducts=(pp||[]).map(mapAdminProduct);adminServices=(ss||[]).map(mapAdminService);orders=oo||[];serviceReq=rr||[];serviceTx=tt||[];renderInventory();renderServiceInventory();renderServiceRequests();renderServiceHistory();renderOrders();await loadPublicData()}catch(e){alert('Unable to load admin data: '+e.message)}}
+
+function init(){cats.innerHTML=categories.map(x=>`<div class='cat' onclick="filterCat('${x.replaceAll("'","\\'")}')">${x}</div>`).join('');category.innerHTML=categories.map(x=>`<option>${x}</option>`).join('');loadPublicData();updateCart();renderUnifiedHoses();refreshAdminState()}
+function availableStock(id){let p=products.find(x=>x.id==id);return p?Number(p.stock)||0:0}
+function renderProducts(filter=''){let q=(search.value||'').toLowerCase();let arr=products.filter(p=>p.active&&(!filter||p.category==filter)&&[p.name,p.sku,p.brand,p.category,p.make,p.model,p.year].join(' ').toLowerCase().includes(q));productGrid.innerHTML=arr.length?arr.map(p=>`<article class='product'>${p.image?`<img class="thumb" src="${p.image}" alt="${escapeText(p.name)}">`:`<div class='photo'>⚙️</div>`}<h3>${escapeText(p.name)}</h3><small>${escapeText(p.brand)} • ${escapeText(p.sku)}</small><p class='price'>${money(p.price)}</p><div class='stock'>${p.stock>0?'Available: '+p.stock:'Out of Stock'}</div><p><small>${escapeText(p.make)} ${escapeText(p.model)} ${escapeText(p.year)}</small></p><button class='btn' ${p.stock<1?'disabled':''} onclick='addCart(${p.id})'>Add to Cart</button></article>`).join(''):'<p>No matching products found.</p>'}
+function filterCat(c){show('store');renderProducts(c);document.getElementById('products').scrollIntoView()}
+function findCompatible(){let q=[make.value,model.value,year.value].filter(Boolean).join(' ').toLowerCase();search.value=q;renderProducts();document.getElementById('products').scrollIntoView()}
+function addCart(id){let av=availableStock(id),x=cart.find(i=>i.id==id),next=x?x.qty+1:1;if(av<1){alert('This product is currently out of stock.');return}if(next>av){alert('Only '+av+' piece(s) are currently available.');return}if(x)x.qty=next;else cart.push({id,qty:1});persistCart();updateCart()}
+function updateCart(){cart=cart.filter(i=>products.some(p=>p.id==i.id));cartCount.textContent=cart.reduce((a,b)=>a+b.qty,0);let total=0;cartLines.innerHTML=cart.map(i=>{let p=products.find(x=>x.id==i.id);if(!p)return'';total+=p.price*i.qty;return `<div class='cartline'><span>${escapeText(p.name)}<br><small>${money(p.price)} each</small></span><span><button onclick='changeQty(${p.id},-1)'>−</button> <b>${i.qty}</b> <button onclick='changeQty(${p.id},1)'>+</button> <button onclick='removeCart(${p.id})'>Remove</button><br><b>${money(p.price*i.qty)}</b></span></div>`}).join('')||'<p>Your cart is empty.</p>';total && persistCart();document.getElementById('total').textContent='Total: '+money(total);if(document.getElementById('checkoutTotal'))checkoutTotal.textContent='Order Total: '+money(total)}
+function changeQty(id,d){let i=cart.find(x=>x.id==id),p=products.find(x=>x.id==id);if(!i||!p)return;if(d>0&&i.qty>=p.stock){alert('Only '+p.stock+' piece(s) are currently available.');return}i.qty=Math.max(1,Math.min(p.stock,i.qty+d));persistCart();updateCart()}
+function removeCart(id){cart=cart.filter(x=>x.id!=id);persistCart();updateCart()}
+function cartTotal(){return cart.reduce((a,i)=>{let p=products.find(x=>x.id==i.id);return a+(p?p.price*i.qty:0)},0)}
+async function placeOrder(){if(!cart.length){alert('Your cart is empty.');return}if(!orderName.value.trim()||!orderContact.value.trim()){alert('Customer name and contact number are required.');return}try{let no=await rpc('mas_place_order',{p_customer_name:orderName.value.trim(),p_contact_number:orderContact.value.trim(),p_address:orderAddress.value.trim(),p_fulfillment:fulfillment.value,p_payment_method:paymentMethod.value,p_proof_name:paymentMethod.value==='GCash'&&gcashProof.files[0]?gcashProof.files[0].name:'',p_notes:orderNotes.value.trim(),p_items:cart.map(i=>({product_id:i.id,qty:i.qty}))});cart=[];persistCart();updateCart();await loadPublicData();alert('Order placed successfully. Your order number is '+no+'. Please save this number for tracking.');trackNo.value=no;trackContact.value=orderContact.value.trim();show('trackPage');lookupOrder()}catch(e){alert('Order could not be placed: '+e.message);await loadPublicData()}}
+async function lookupOrder(){let n=trackNo.value.trim(),c=trackContact.value.trim();if(!n||!c){trackResult.innerHTML='<div class="notice">Enter the order number and the contact number used when ordering.</div>';return}try{let rows=await rpc('mas_track_order',{p_order_no:n,p_contact_number:c});let o=rows&&rows[0];trackResult.innerHTML=o?`<div class='notice ok'><h3>${escapeText(o.order_no)}</h3><b>Status: ${escapeText(o.status)}</b><br>Payment: ${escapeText(o.payment_method)} • ${escapeText(o.payment_status)}<br>Customer: ${escapeText(o.customer_name)}<br>Total: ${money(o.total)}<br><small>${new Date(o.created_at).toLocaleString()}</small></div>`:`<div class='notice'>No matching order was found. Check the order number and contact number.</div>`}catch(e){trackResult.innerHTML='<div class="notice">Unable to track the order right now.</div>'}}
+function toggleProof(){proofWrap.classList.toggle('hidden',paymentMethod.value!=='GCash')}
+
+async function show(id){['store','cartPage','checkoutPage','trackPage','posPage','reportsPage','fuelPage','fuelAdminPage','admin','servicePage','inquiryPage','serviceAdmin'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));if(id==='cartPage'||id==='checkoutPage')updateCart();if(id==='admin'){await refreshAdminState();if(await ensureAdminSession())await loadFinance();}if(id==='serviceAdmin'&&await ensureAdminSession()){await loadAdminData()}if(id==='posPage'&&await ensureAdminSession()){await loadPublicData();refreshPOS()}if(id==='reportsPage'){if(await ensureAdminSession())await renderReports();else alert('Admin login is required to view reports.')}if(id==='fuelPage')loadUnifiedFuelPrices();if(id==='fuelAdminPage'){if(await ensureAdminSession())await loadIntegratedFuelAdmin();else alert('Admin login is required for Fuel Operations.');}scrollTo(0,0)}
+
+async function saveProduct(){if(!await ensureAdminSession()){alert('Admin login required.');return}let payload={name:pname.value.trim(),sku:sku.value.trim(),brand:brand.value.trim(),category:category.value,cost:+cost.value||0,price:+price.value||0,stock:+stock.value||0,reorder_level:+reorder.value||0,make:compatMake.value.trim(),model:compatModel.value.trim(),year:compatYear.value.trim(),description:desc.value.trim(),image_url:pendingProductImage||'',active:active.checked,featured:featured.checked,new_arrival:newarrival.checked};if(!payload.name||!payload.sku||!payload.price){alert('Product Name, SKU and Selling Price are required.');return}try{let id=editId.value;if(id){let current=adminProducts.find(p=>p.id==id);if(!pendingProductImage&&current)payload.image_url=current.image||'';await tableWrite(`mas_products?id=eq.${encodeURIComponent(id)}`,'PATCH',payload,true)}else await tableWrite('mas_products','POST',payload,true);clearForm();await loadAdminData();alert('Product saved online.')}catch(e){alert('Product could not be saved: '+e.message)}}
+function editProduct(id){let p=adminProducts.find(x=>x.id==id);if(!p)return;editId.value=p.id;pname.value=p.name;sku.value=p.sku;brand.value=p.brand;category.value=p.category;cost.value=p.cost;price.value=p.price;stock.value=p.stock;reorder.value=p.reorder;compatMake.value=p.make;compatModel.value=p.model;compatYear.value=p.year;desc.value=p.desc;active.checked=p.active;featured.checked=p.featured;newarrival.checked=p.newarrival;pendingProductImage=p.image||'';if(p.image){photoPreview.src=p.image;photoPreview.classList.remove('hidden')}else photoPreview.classList.add('hidden');scrollTo(0,0)}
+async function archiveProduct(id){if(!confirm('Archive/hide this product?'))return;try{await tableWrite(`mas_products?id=eq.${id}`,'PATCH',{active:false},true);await loadAdminData()}catch(e){alert(e.message)}}
+async function restock(id){let p=adminProducts.find(x=>x.id==id),n=Number(prompt('Quantity to add:','1'));if(!p||!(n>0))return;try{await tableWrite(`mas_products?id=eq.${id}`,'PATCH',{stock:p.stock+n},true);await loadAdminData()}catch(e){alert(e.message)}}
+function renderInventory(){inventory.innerHTML=adminProducts.length?adminProducts.map(p=>`<div class='cartline'><span><b>${escapeText(p.name)}</b><br><small>${escapeText(p.sku)} • ${escapeText(p.category)} • Stock ${p.stock}${p.stock<=p.reorder?' ⚠ LOW':''} • ${p.active?'Active':'Archived'}</small></span><span><button onclick='editProduct(${p.id})'>Edit</button> <button onclick='restock(${p.id})'>Restock</button> <button onclick='archiveProduct(${p.id})'>Archive</button></span></div>`).join(''):'<p>No products yet.</p>'}
+function clearForm(){editId.value='';['pname','sku','brand','cost','price','stock','compatMake','compatModel','compatYear','desc'].forEach(x=>document.getElementById(x).value='');reorder.value=3;active.checked=true;featured.checked=true;newarrival.checked=false;pendingProductImage='';photoPreview.src='';photoPreview.classList.add('hidden')}
+function previewProductPhoto(e){let f=e.target.files[0];if(!f)return;if(f.size>300000){alert('For the online pilot, please use a small product image under 300 KB.');e.target.value='';return}let r=new FileReader();r.onload=()=>{pendingProductImage=r.result;photoPreview.src=r.result;photoPreview.classList.remove('hidden')};r.readAsDataURL(f)}
+
+function renderOrders(){adminOrders.innerHTML=orders.length?orders.map(o=>{let cashPickup=String(o.payment_method||'').toLowerCase()==='cash on pickup',paid=['paid','verified','payment verified','paid / verified','paid/verified'].includes(String(o.payment_status||'').toLowerCase()),cancelled=String(o.status||'').toLowerCase()==='cancelled';return `<div class='cartline'><span><b>${escapeText(o.order_no)} • ${escapeText(o.customer_name)}</b><br><small>${new Date(o.created_at).toLocaleString()} • ${escapeText(o.fulfillment)} • ${escapeText(o.payment_method)} • ${escapeText(o.payment_status)}</small><br>${(o.mas_order_items||[]).map(i=>escapeText(i.product_name)+' × '+i.qty).join(', ')}<br><b>${money(o.total)}</b></span><span><select onchange="updateOrderStatus('${o.id}',this.value)">${['Pending','Confirmed','Preparing','Ready for Pickup','Out for Delivery','Completed','Cancelled'].map(s=>`<option ${o.status===s?'selected':''}>${s}</option>`).join('')}</select>${o.payment_method==='GCash'&&!paid&&!cancelled?`<button onclick="verifyPayment('${o.id}')">VERIFY GCASH</button>`:''}${cashPickup&&!paid&&!cancelled?`<button onclick="confirmCashPickupPayment('${o.id}')">MARK PAYMENT RECEIVED</button>`:''}${paid?`<span class='badge'>PAYMENT RECEIVED</span>`:''}</span></div>`}).join(''):'<p>No online orders yet.</p>'}
+async function updateOrderStatus(id,status){try{if(status==='Completed')await rpc('mas_complete_order',{p_order_id:id},true);else await rpc('mas_set_order_status',{p_order_id:id,p_status:status},true);await loadAdminData();await loadFinance()}catch(e){alert('Status could not be changed: '+e.message);await loadAdminData()}}
+async function verifyPayment(id){if(!confirm('Confirm that you personally verified this GCash payment?'))return;try{await tableWrite(`mas_orders?id=eq.${id}`,'PATCH',{payment_status:'Verified'},true);await loadAdminData();await loadFinance();alert('GCash payment verified. Finance has been updated.')}catch(e){alert(e.message)}}
+async function confirmCashPickupPayment(id){if(!await ensureAdminSession()){alert('Admin login required.');return}let o=orders.find(x=>String(x.id)===String(id));if(!o)return;if(String(o.status||'').toLowerCase()==='cancelled'){alert('Cancelled orders cannot be marked as paid.');return}if(String(o.payment_method||'').toLowerCase()!=='cash on pickup'){alert('This control is only for Cash on Pickup orders.');return}if(!confirm(`Confirm that ${escapeText(o.customer_name)} paid ${money(o.total)} in cash? This will move the amount from Pending Collection to Cash on Hand.`))return;try{await rpc('mas_confirm_order_payment',{p_order_id:id,p_payment_status:'Paid'},true);await loadAdminData();await loadFinance();alert('Payment received. Finance updated: this order is now included in Cash on Hand.')}catch(e){alert('Payment could not be confirmed: '+e.message)}}
+
+function refreshPOS(){posProduct.innerHTML=products.filter(p=>p.stock>0).map(p=>`<option value="${p.id}">${escapeText(p.name)} • ${money(p.price)} • Available ${p.stock}</option>`).join('')}
+async function recordPOSSale(){if(!await ensureAdminSession()){alert('Admin login required.');return}let id=Number(posProduct.value),q=Math.max(1,+posQty.value||1),p=products.find(x=>x.id==id);try{let no=await rpc('mas_record_pos_sale',{p_product_id:id,p_qty:q,p_customer:posCustomer.value.trim(),p_payment:posPayment.value},true);alert('Counter sale recorded online: '+(p?money(p.price*q):'')+'\nReference: '+no);posQty.value=1;posCustomer.value='';await loadAdminData()}catch(e){alert('Counter sale failed: '+e.message)}}
+
+function renderServices(){serviceGrid.innerHTML=services.length?services.map(x=>`<article class='service-card'><div class='service-icon'>${x.type==='Vulcanizing'?'🛞':'🔧'}</div><small>${escapeText(x.type)}</small><h3>${escapeText(x.name)}</h3><p>${escapeText(x.desc)}</p><div class='service-price'>${x.price>0?money(x.price):'Ask for quotation'}</div><small>${escapeText(x.time)}</small><br><br><button class='btn' onclick='requestService(${x.id})'>INQUIRE / REQUEST</button></article>`).join(''):'<p>No services are currently marked available.</p>'}
+function requestService(id){let x=services.find(s=>s.id==id);if(!x)return;selectedServiceId.value=x.id;selectedServiceText.innerHTML='<b>'+escapeText(x.name)+'</b> • '+escapeText(x.type)+'<br>'+(x.price>0?money(x.price):'Price/charge subject to store quotation or inspection.');show('servicePage')}
+async function saveServiceRequest(){let x=services.find(s=>s.id==selectedServiceId.value);if(!x||!custName.value.trim()||!custContact.value.trim()){alert('Customer name and contact number are required.');return}try{let no=await rpc('mas_submit_service_request',{p_service_id:x.id,p_customer_name:custName.value.trim(),p_contact_number:custContact.value.trim(),p_vehicle:[bikeMake.value,bikeModel.value].filter(Boolean).join(' '),p_plate:plate.value.trim(),p_concern:concern.value.trim()});alert('Service request submitted online. Reference: '+no);['custName','custContact','bikeMake','bikeModel','plate','concern'].forEach(i=>document.getElementById(i).value='');show('store')}catch(e){alert('Service request failed: '+e.message)}}
+async function saveService(){if(!await ensureAdminSession()){alert('Admin login required.');return}let payload={name:sname.value.trim(),service_type:stype.value,standard_charge:+sprice.value||0,estimated_time:stime.value.trim(),description:sdesc.value.trim(),active:sactive.checked};if(!payload.name){alert('Service name is required.');return}try{let id=serviceEditId.value;if(id)await tableWrite(`mas_services?id=eq.${id}`,'PATCH',payload,true);else await tableWrite('mas_services','POST',payload,true);clearServiceForm();await loadAdminData();alert('Service saved online.')}catch(e){alert(e.message)}}
+function editService(id){let x=adminServices.find(s=>s.id==id);if(!x)return;serviceEditId.value=x.id;sname.value=x.name;stype.value=x.type;sprice.value=x.price;stime.value=x.time;sdesc.value=x.desc;sactive.checked=x.active;scrollTo(0,0)}
+async function toggleService(id){let x=adminServices.find(s=>s.id==id);if(!x)return;try{await tableWrite(`mas_services?id=eq.${id}`,'PATCH',{active:!x.active},true);await loadAdminData()}catch(e){alert(e.message)}}
+function clearServiceForm(){serviceEditId.value='';sname.value='';sprice.value='';stime.value='';sdesc.value='';sactive.checked=true}
+function renderServiceInventory(){serviceInventory.innerHTML=adminServices.length?adminServices.map(x=>`<div class='cartline'><span><b>${escapeText(x.name)}</b><br><small>${escapeText(x.type)} • ${x.price?money(x.price):'Quote/inspect'} • ${x.active?'Available':'Hidden'}</small></span><span><button onclick='editService(${x.id})'>Edit</button> <button onclick='toggleService(${x.id})'>${x.active?'Hide':'Activate'}</button></span></div>`).join(''):'<p>No services.</p>'}
+function renderServiceRequests(){serviceRequests.innerHTML=serviceReq.length?serviceReq.map(r=>`<div class='cartline'><span><b>${escapeText(r.request_no)} • ${escapeText(r.customer_name)}</b><br><small>${new Date(r.created_at).toLocaleString()} • ${escapeText(r.service_name)} • ${escapeText(r.vehicle||'Vehicle not entered')} • ${escapeText(r.status)}</small><br>${escapeText(r.concern||'')}</span><span><button onclick="setReqStatus('${r.id}','Confirmed')">Confirm</button> <button onclick="setReqStatus('${r.id}','Completed')">Complete</button></span></div>`).join(''):'<p>No service requests yet.</p>'}
+async function setReqStatus(id,status){try{await tableWrite(`mas_service_requests?id=eq.${id}`,'PATCH',{status},true);await loadAdminData()}catch(e){alert(e.message)}}
+function refreshServiceSelectors(){txService.innerHTML=services.map(x=>`<option value="${x.id}">${escapeText(x.name)}</option>`).join('');txPart.innerHTML='<option value="">None</option>'+products.filter(p=>p.stock>0).map(p=>`<option value="${p.id}">${escapeText(p.name)} (Available ${p.stock})</option>`).join('')}
+async function recordServiceTransaction(){if(!await ensureAdminSession()){alert('Admin login required.');return}let sid=Number(txService.value),pid=txPart.value?Number(txPart.value):null,qty=Math.max(0,+txQty.value||0);if(!txCustomer.value.trim()){alert('Customer is required.');return}try{let no=await rpc('mas_record_service_transaction',{p_service_id:sid,p_customer:txCustomer.value.trim(),p_vehicle:txVehicle.value.trim(),p_plate:txPlate.value.trim(),p_technician:txTech.value.trim(),p_labor:+txLabor.value||0,p_part_id:pid,p_qty:qty,p_payment:txPayment.value,p_notes:txNotes.value.trim()},true);alert('Completed service recorded online. Reference: '+no);['txCustomer','txVehicle','txPlate','txTech','txLabor','txNotes'].forEach(i=>document.getElementById(i).value='');txQty.value=0;await loadAdminData()}catch(e){alert('Service transaction failed: '+e.message)}}
+function renderServiceHistory(){serviceHistory.innerHTML=serviceTx.length?serviceTx.map(t=>`<div class='cartline'><span><b>${escapeText(t.tx_no)} • ${escapeText(t.customer_name)}</b><br><small>${new Date(t.created_at).toLocaleString()} • ${escapeText(t.service_name)} • ${escapeText(t.vehicle||'')} • ${escapeText(t.technician||'Technician not entered')}</small><br><small>${t.part_name?('Part: '+escapeText(t.part_name)+' × '+t.qty+' • '):''}Labor ${money(t.labor)} • ${escapeText(t.payment)}</small></span><b>${money(t.total)}</b></div>`).join(''):'<p>No completed service transactions yet.</p>'}
+
+async function renderReports(){if(!await ensureAdminSession())return;try{let rows=await rpc('mas_report_summary',{},true),r=rows&&rows[0];if(!r)throw new Error('No report data');let fuelRows=await tableGet('fuel_orders?select=*&order=created_at.desc&limit=200',true);const FUEL_REPORT_START=new Date('2026-10-04T16:26:00+08:00').getTime();fuelRows=(fuelRows||[]).filter(x=>String(x.status).toUpperCase()==='COMPLETED'&&String(x.order_type).toLowerCase()==='fuel'&&new Date(x.created_at).getTime()>=FUEL_REPORT_START);let fuelSales=fuelRows.reduce((a,x)=>a+(Number(x.total_amount)||0),0);let gross=(Number(r.total_gross_revenue)||0)+fuelSales;reportKpis.innerHTML=`<div class='stat'>Online Product Sales<br><b>${money(r.online_product_sales)}</b></div><div class='stat'>Counter / POS Sales<br><b>${money(r.counter_pos_sales)}</b></div><div class='stat'>Service Parts<br><b>${money(r.service_parts)}</b></div><div class='stat'>Service Labor<br><b>${money(r.service_labor)}</b></div><div class='stat'>Completed Fuel Sales<br><b>${money(fuelSales)}</b></div><div class='stat'>Total Product Sales<br><b>${money(r.total_product_sales)}</b></div><div class='stat'>Total Service Revenue<br><b>${money(r.total_service_revenue)}</b></div><div class='stat'>Total Gross Revenue<br><b>${money(gross)}</b></div><div class='stat'>Gross Profit Before Expenses*<br><b>${money(r.gross_profit_before_expenses)}</b><br><small>*fuel profit is not included until fuel acquisition cost is recorded</small></div>`;let [ss,tt]=await Promise.all([tableGet('mas_sales?select=*&order=created_at.desc&limit=100',true),tableGet('mas_service_transactions?select=*&order=created_at.desc&limit=100',true)]);sales=ss||[];serviceTx=tt||[];salesReport.innerHTML=sales.length?`<table class='reporttable'><tr><th>Date</th><th>Source</th><th>Reference</th><th>Item</th><th>Qty</th><th>Total</th></tr>${sales.map(x=>`<tr><td>${new Date(x.created_at).toLocaleString()}</td><td>${escapeText(x.source)}</td><td>${escapeText(x.sale_no)}</td><td>${escapeText(x.item_name)}</td><td>${x.qty}</td><td>${money(x.total)}</td></tr>`).join('')}</table>`:'<p>No completed online or counter/POS product sales recorded yet.</p>';serviceReport.innerHTML=serviceTx.length?`<table class='reporttable'><tr><th>Date</th><th>Reference</th><th>Customer</th><th>Service</th><th>Parts</th><th>Labor</th><th>Total</th></tr>${serviceTx.map(x=>`<tr><td>${new Date(x.created_at).toLocaleString()}</td><td>${escapeText(x.tx_no)}</td><td>${escapeText(x.customer_name)}</td><td>${escapeText(x.service_name)}</td><td>${money(x.parts_charge)}</td><td>${money(x.labor)}</td><td>${money(x.total)}</td></tr>`).join('')}</table>`:'<p>No service transactions recorded yet.</p>';fuelSalesReport.innerHTML=fuelRows.length?`<table class='reporttable'><tr><th>Date</th><th>Order</th><th>Customer</th><th>Fuel</th><th>Liters</th><th>Total</th></tr>${fuelRows.map(x=>`<tr><td>${new Date(x.created_at).toLocaleString()}</td><td>${escapeText(x.order_no)}</td><td>${escapeText(x.customer_name)}</td><td>${escapeText(x.fuel_type)}</td><td>${Number(x.liters||0).toFixed(2)}</td><td>${money(x.total_amount)}</td></tr>`).join('')}</table>`:'<p>No completed fuel sales recorded yet.</p>'}catch(e){alert('Report could not be loaded: '+e.message)}}
+async function clearTestTransactions(){if(!await ensureAdminSession()){alert('Admin login required.');return}let msg='CLEAR / RESET ONLINE PILOT TRANSACTIONS?\n\nThis restores inventory deducted by online/POS sales and service parts, then deletes Motorcycle & Auto Supply pilot orders, sales, service requests, and service transactions.\n\nProducts, services, and Fuel/SATCO records are NOT deleted.';if(!confirm(msg)||!confirm('FINAL CONFIRMATION: Reset Motorcycle & Auto Supply online pilot transactions now?'))return;try{await rpc('mas_reset_pilot_transactions',{},true);cart=[];persistCart();await loadAdminData();await renderReports();alert('Online pilot transactions cleared and deducted pilot stock restored.')}catch(e){alert('Reset failed: '+e.message)}}
+
+function quickAsk(q){chatInput.value=q;sendChat()}
+function sendChat(){let q=chatInput.value.trim();if(!q)return;chatBox.innerHTML+=`<div class='msg user'>${escapeText(q)}</div>`;chatInput.value='';let a=answerInquiry(q);chatBox.innerHTML+=`<div class='msg bot'>${a}</div>`;chatBox.scrollTop=chatBox.scrollHeight}
+function answerInquiry(q){let z=q.toLowerCase();if(z.includes('fuel')||z.includes('regular')||z.includes('premium')||z.includes('diesel')||z.includes('dispenser')){let ps=unifiedFuelPrices;if(z.includes('dispenser'))return 'Fuel dispenser supply is available in the Fuel & Dispenser Supply section. Models include single-hose, single-hose with tank, two-hose, and three-hose configurations.';if(ps.Regular&&ps.Premium&&ps.Diesel)return 'Current online fuel prices: Regular '+money(ps.Regular)+'/L, Premium '+money(ps.Premium)+'/L, Diesel '+money(ps.Diesel)+'/L.';return 'Fuel supply is available. Open Fuel to refresh the live prices.'}if(z.includes('vulcan')){let a=services.filter(x=>x.type==='Vulcanizing');return a.length?'Available vulcanizing services: '+a.map(x=>x.name).join(', ')+'. Final charge may depend on inspection.':'No vulcanizing service is currently marked available.'}if(z.includes('repair')||z.includes('mechanic')){let a=services.filter(x=>x.type==='Minor Motorcycle Repair');return a.length?'Current minor repair services include: '+a.map(x=>x.name).join(', ')+'.':'No minor repair service is currently marked available.'}let words=z.split(/\s+/).filter(w=>w.length>2);let a=products.filter(p=>words.some(w=>[p.name,p.sku,p.brand,p.category,p.make,p.model,p.year].join(' ').toLowerCase().includes(w))).slice(0,5);if(a.length)return 'Possible matching store items: '+a.map(p=>p.name+' — '+money(p.price)+' — '+(p.stock>0?'Available '+p.stock:'Out of stock')).join('; ')+'.';return 'I could not confirm that from the current online store records. Please send the exact part name/number or vehicle make/model/year.'}
+
+const FUEL_SUPABASE_URL=SB_URL;
+const FUEL_SUPABASE_KEY=SB_KEY;
+async function loadUnifiedFuelPrices(){try{let r=await fetch(`${FUEL_SUPABASE_URL}/rest/v1/fuel_prices?select=fuel_type,price_per_liter`,{headers:{apikey:FUEL_SUPABASE_KEY},cache:'no-store'});if(!r.ok)throw new Error(await r.text());let rows=await r.json();rows.forEach(x=>{if(Object.prototype.hasOwnProperty.call(unifiedFuelPrices,x.fuel_type))unifiedFuelPrices[x.fuel_type]=Number(x.price_per_liter)});uReg.textContent=Number.isFinite(unifiedFuelPrices.Regular)?unifiedFuelPrices.Regular.toFixed(2):'Unavailable';uPrem.textContent=Number.isFinite(unifiedFuelPrices.Premium)?unifiedFuelPrices.Premium.toFixed(2):'Unavailable';uDiesel.textContent=Number.isFinite(unifiedFuelPrices.Diesel)?unifiedFuelPrices.Diesel.toFixed(2):'Unavailable';aReg.value=Number.isFinite(unifiedFuelPrices.Regular)?unifiedFuelPrices.Regular.toFixed(2):'';aPrem.value=Number.isFinite(unifiedFuelPrices.Premium)?unifiedFuelPrices.Premium.toFixed(2):'';aDiesel.value=Number.isFinite(unifiedFuelPrices.Diesel)?unifiedFuelPrices.Diesel.toFixed(2):'';uFuelSubmit.disabled=false;uFuelSubmit.textContent='PLACE FUEL / DISPENSER ORDER';calcUnifiedFuel()}catch(e){uFuelSubmit.disabled=true;uFuelSubmit.textContent='LIVE FUEL SYSTEM UNAVAILABLE';uFuelTotal.textContent='Unable to load current fuel prices. Please check internet connection.'}}
+function switchUnifiedFuelType(){let f=fuelOrderType.value==='fuel';unifiedFuelSection.classList.toggle('hidden',!f);unifiedDispSection.classList.toggle('hidden',f);renderUnifiedHoses()}
+function toggleUnifiedFuelMode(){uLitersBox.classList.toggle('hidden',uFuelMode.value!=='liters');uAmountBox.classList.toggle('hidden',uFuelMode.value!=='amount');calcUnifiedFuel()}
+function calcUnifiedFuel(){let p=unifiedFuelPrices[uFuelType.value],lit=0,total=0;if(!Number.isFinite(p))return;if(uFuelMode.value==='liters'){lit=+uLiters.value||0;total=lit*p}else{total=+uAmount.value||0;lit=p?total/p:0}uFuelTotal.textContent='Total: '+money(total);uFuelInfo.textContent=lit>0?lit.toFixed(2)+' liter(s) at '+money(p)+' per liter.':''}
+function uHose(n,tank){return `<div class="fuelbox"><b>Hose ${n}</b><label>Fuel Type<select class="uHoseFuel"><option>Regular</option><option>Premium</option><option>Diesel</option></select></label>${tank?'<label>Tank Capacity (Liters)<input class="uTank" type="number" min="0"></label>':'<small>No built-in tank.</small>'}</div>`}
+function renderUnifiedHoses(){let m=uDispModel.value,h='';if(m==='single-no-tank')h=uHose(1,false);if(m==='single-tank')h=uHose(1,true);if(m==='two-hose')h=uHose(1,true)+uHose(2,true);if(m==='three-hose')h=uHose(1,true)+uHose(2,true)+uHose(3,true);uHoses.innerHTML=h}
+function unifiedModelName(v){return {'single-no-tank':'Single Hose – No Built-in Tank','single-tank':'Single Hose – With Built-in Tank','two-hose':'2 Hoses – Built-in Tank for Each Hose','three-hose':'3 Hoses – Built-in Tank for Each Hose'}[v]}
+let integratedFuelOrdersData=[];
+async function loadIntegratedFuelAdmin(){if(!await ensureAdminSession())return;await loadUnifiedFuelPrices();try{integratedFuelOrdersData=await tableGet('fuel_orders?select=*&order=created_at.desc&limit=200',true)||[];renderIntegratedFuelOrders()}catch(e){integratedFuelOrders.innerHTML=`<div class='notice'>Could not load fuel orders: ${escapeText(e.message)}</div>`}}
+function renderIntegratedFuelOrders(){let q=(fuelAdminSearch?.value||'').trim().toLowerCase(),rows=integratedFuelOrdersData.filter(x=>!q||JSON.stringify(x).toLowerCase().includes(q));integratedFuelOrders.innerHTML=rows.length?rows.map(o=>`<div class='panel' style='margin:10px 0;padding:14px'><b>${escapeText(o.order_no)}</b> <span class='badge'>${escapeText(o.status)}</span><br><small>${new Date(o.created_at).toLocaleString()}</small><p><b>${escapeText(o.customer_name)}</b> • ${escapeText(o.mobile||'')}<br>${escapeText(o.address||'')}</p>${o.order_type==='fuel'?`<p><b>${escapeText(o.fuel_type)}</b> — ${Number(o.liters||0).toFixed(2)} L × ${money(o.price_per_liter)}/L<br><b>Total: ${money(o.total_amount)}</b></p>`:`<p><b>Fuel Dispenser</b> — ${escapeText(o.dispenser_model||'')} • Qty ${o.dispenser_qty||1}</p>`}<div class='row'><button class='btn secondary' onclick="setIntegratedFuelStatus(${o.id},'CONFIRMED')">CONFIRM</button><button class='btn secondary' onclick="setIntegratedFuelStatus(${o.id},'PREPARING')">PREPARING</button><button class='btn secondary' onclick="setIntegratedFuelStatus(${o.id},'READY / FOR DELIVERY')">READY</button><button class='btn' onclick="setIntegratedFuelStatus(${o.id},'COMPLETED')">COMPLETE</button><button class='btn danger' onclick="setIntegratedFuelStatus(${o.id},'CANCELLED')">CANCEL</button></div></div>`).join(''):'<p>No fuel/dispenser orders found.</p>'}
+async function setIntegratedFuelStatus(id,status){if(!await ensureAdminSession())return;if(!confirm(`Change this order to ${status}?`))return;try{let r=await fetch(`${SB_URL}/rest/v1/fuel_orders?id=eq.${encodeURIComponent(id)}`,{method:'PATCH',headers:authHeaders(true,{'Content-Type':'application/json','Prefer':'return=minimal'}),body:JSON.stringify({status})});await parseResponse(r);let x=integratedFuelOrdersData.find(a=>String(a.id)===String(id));if(x)x.status=status;renderIntegratedFuelOrders();alert('Fuel order status changed to '+status+'.')}catch(e){alert('Fuel order could not be updated: '+e.message)}}
+async function saveIntegratedFuelPrices(){if(!await ensureAdminSession())return;let vals={Regular:Number(aReg.value),Premium:Number(aPrem.value),Diesel:Number(aDiesel.value)};if(Object.values(vals).some(v=>!Number.isFinite(v)||v<=0)){alert('Enter valid fuel prices.');return}try{for(let [fuel_type,price_per_liter] of Object.entries(vals)){let r=await fetch(`${SB_URL}/rest/v1/fuel_prices?fuel_type=eq.${encodeURIComponent(fuel_type)}`,{method:'PATCH',headers:authHeaders(true,{'Content-Type':'application/json','Prefer':'return=minimal'}),body:JSON.stringify({price_per_liter})});await parseResponse(r)}await loadUnifiedFuelPrices();alert('Live fuel prices saved successfully.')}catch(e){alert('Fuel prices could not be saved: '+e.message)}}
+async function placeUnifiedFuelOrder(ev){if(!fuelCustName.value.trim()||!fuelMobile.value.trim()){alert('Customer name and mobile number are required.');return}let type=fuelOrderType.value,no='FUEL-'+new Date().toISOString().replace(/\D/g,'').slice(0,14)+'-'+Math.floor(100+Math.random()*900);let payload={order_no:no,customer_name:fuelCustName.value.trim(),mobile:fuelMobile.value.trim(),address:fuelAddress.value.trim()||null,order_type:type,fulfillment:uFuelFulfillment.value,payment_method:uFuelPayment.value,status:'FOR CONFIRMATION'};if(type==='fuel'){let p=unifiedFuelPrices[uFuelType.value],lit=0,total=0;if(!Number.isFinite(p)){alert('Live fuel price is unavailable.');return}if(uFuelMode.value==='liters'){lit=+uLiters.value||0;total=lit*p}else{total=+uAmount.value||0;lit=total/p}if(total<=0){alert('Enter liters or peso amount.');return}Object.assign(payload,{fuel_type:uFuelType.value,price_per_liter:p,liters:Number(lit.toFixed(2)),total_amount:Number(total.toFixed(2))})}else{let hoses=[...document.querySelectorAll('#uHoses .fuelbox')];payload.dispenser_model=unifiedModelName(uDispModel.value);payload.dispenser_qty=parseInt(uDispQty.value||'1');payload.hose_details=hoses.map((h,i)=>{let t=h.querySelector('.uTank');return {hose:i+1,fuel_type:h.querySelector('.uHoseFuel').value,tank_capacity_liters:t&&t.value?Number(t.value):null}});payload.dispenser_notes=uDispNotes.value.trim()||null}let b=ev?.currentTarget;if(b){b.disabled=true;b.textContent='SUBMITTING...'}try{let r=await fetch(`${FUEL_SUPABASE_URL}/rest/v1/fuel_orders`,{method:'POST',headers:{apikey:FUEL_SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify(payload)});if(!r.ok)throw new Error(await r.text());localStorage.setItem('lastFuelOrderNo',no);alert('Order submitted online successfully. Order No.: '+no+'\nPlease keep this number for reference.')}catch(e){console.error(e);alert('The fuel/dispenser order could not be sent online. Please check the internet connection and try again.')}finally{if(b){b.disabled=false;b.textContent='PLACE FUEL / DISPENSER ORDER'}}}
+
+
+let financeTransactions=[];
+function financeTypeLabel(t){return {CASH_IN:'Other Cash In',EXPENSE:'Expense / Cash Out',WITHDRAWAL:'Owner Withdrawal',BORROWED_CASH:'Borrowed Cash / Payable',PAYABLE_PAYMENT:'Payable Payment',RECEIVABLE:'Customer Receivable / Credit',RECEIVABLE_PAYMENT:'Receivable Payment'}[t]||t}
+function updateFinanceHint(){let el=document.getElementById('finType'),t=el.value,msg={EXPENSE:'Reduces the current cash balance.',WITHDRAWAL:'Records cash withdrawn by the owner and reduces cash balance. This is NOT a business expense.',CASH_IN:'Adds other cash received that is not already recorded as a sale.',BORROWED_CASH:'Adds cash received and also increases outstanding payables.',PAYABLE_PAYMENT:'Reduces cash and reduces outstanding payables.',RECEIVABLE:'Records money owed by a selected customer. It does not add cash until payment is received.',RECEIVABLE_PAYMENT:'Adds cash received from a customer and reduces outstanding receivables.'}[t];document.getElementById('financeHint').textContent=msg||'';let c=document.getElementById('financeTypeConfirm');if(c)c.innerHTML='<b>Selected:</b> '+escapeText(financeTypeLabel(t))}
+function clearFinanceForm(){document.getElementById('finType').value='EXPENSE';document.getElementById('finParty').value='';document.getElementById('finAmount').value='';document.getElementById('finPayment').value='Cash';document.getElementById('finReference').value='';document.getElementById('finNotes').value='';updateFinanceHint()}
+async function saveFinanceTransaction(){
+if(!await ensureAdminSession())return;
+let btn=document.getElementById('finSaveBtn');
+if(btn?.disabled)return;
+let type=document.getElementById('finType').value,party=document.getElementById('finParty').value.trim(),amount=Number(document.getElementById('finAmount').value),payment=document.getElementById('finPayment').value,reference=document.getElementById('finReference').value.trim(),notes=document.getElementById('finNotes').value.trim();
+if(!(amount>0)){alert('Enter a valid amount.');return}
+if(['BORROWED_CASH','PAYABLE_PAYMENT','RECEIVABLE','RECEIVABLE_PAYMENT'].includes(type)&&!party){alert('Please enter the customer, lender, payee, or source name for this transaction.');return}
+let label=financeTypeLabel(type);
+if(!confirm('Save as '+label+' for '+money(amount)+'?\n\nPlease verify the transaction type before continuing.'))return;
+try{
+  if(btn){btn.disabled=true;btn.textContent='SAVING...'}
+  await tableWrite('mas_cash_transactions','POST',{transaction_type:type,party_name:party||null,amount,payment_method:payment,reference_no:reference||null,notes:notes||null},true);
+  clearFinanceForm();
+  await loadFinance();
+  alert(label+' saved online.');
+}catch(e){alert('Finance transaction could not be saved: '+e.message)}
+finally{if(btn){btn.disabled=false;btn.textContent='SAVE FINANCE TRANSACTION'}}
+}
+async function deleteFinanceTransaction(id){if(!await ensureAdminSession())return;if(!confirm('Delete this manually entered finance transaction?'))return;try{let r=await fetch(`${SB_URL}/rest/v1/mas_cash_transactions?id=eq.${encodeURIComponent(id)}`,{method:'DELETE',headers:authHeaders(true,{'Prefer':'return=minimal'})});await parseResponse(r);await loadFinance()}catch(e){alert('Transaction could not be deleted: '+e.message)}}
+async function loadFinance(){
+if(!await ensureAdminSession())return;
+let k=document.getElementById('financeKpis'),h=document.getElementById('financeHistory');
+if(!k||!h)return;
+try{
+  let [ss,tt,ff,mm,oo]=await Promise.all([
+    tableGet('mas_sales?select=id,total,payment,source,order_id,created_at',true),
+    tableGet('mas_service_transactions?select=total,payment,created_at',true),
+    tableGet('fuel_orders?select=order_type,status,total_amount,payment_method,created_at&order=created_at.desc&limit=500',true),
+    tableGet('mas_cash_transactions?select=*&order=created_at.desc&limit=500',true),
+    tableGet('mas_orders?select=id,status,payment_method,payment_status,total,created_at',true)
+  ]);
+  const FUEL_REPORT_START=new Date('2026-10-04T16:26:00+08:00').getTime();
+  const norm=v=>String(v||'').trim().toLowerCase();
+  const isCash=v=>norm(v)==='cash';
+  const isGCash=v=>norm(v)==='gcash';
+  const isBank=v=>norm(v).includes('bank');
+  const isPaidStatus=v=>{let z=norm(v);return z==='paid'||z==='payment verified'||z==='verified'||z==='paid / verified'||z==='paid/verified'};
+  const orderMap=new Map((oo||[]).map(o=>[String(o.id),o]));
+  const saleCollected=x=>{
+    if(norm(x.source)!=='online')return true;
+    let o=orderMap.get(String(x.order_id||''));
+    if(!o)return false;
+    if(isCash(x.payment)||norm(x.payment)==='cash on pickup')return isPaidStatus(o.payment_status);
+    if(isGCash(x.payment)||isBank(x.payment))return isPaidStatus(o.payment_status);
+    return isPaidStatus(o.payment_status);
+  };
+  const collectedMethod=x=>{
+    let p=norm(x.payment);
+    if(p==='cash on pickup')return 'cash';
+    return p;
+  };
+
+  let fuelCompleted=(ff||[]).filter(x=>String(x.status).toUpperCase()==='COMPLETED'&&norm(x.order_type)==='fuel'&&new Date(x.created_at).getTime()>=FUEL_REPORT_START);
+  let productSales=(ss||[]).reduce((a,x)=>a+(Number(x.total)||0),0);
+  let serviceSales=(tt||[]).reduce((a,x)=>a+(Number(x.total)||0),0);
+  let fuelSales=fuelCompleted.reduce((a,x)=>a+(Number(x.total_amount)||0),0);
+  let automaticSales=productSales+serviceSales+fuelSales;
+
+  let pendingCollection=(ss||[]).filter(x=>norm(x.source)==='online'&&!saleCollected(x)).reduce((a,x)=>a+(Number(x.total)||0),0);
+
+  let autoCash=(ss||[]).filter(x=>saleCollected(x)&&collectedMethod(x)==='cash').reduce((a,x)=>a+(Number(x.total)||0),0)
+    +(tt||[]).filter(x=>isCash(x.payment)).reduce((a,x)=>a+(Number(x.total)||0),0)
+    +fuelCompleted.filter(x=>isCash(x.payment_method)).reduce((a,x)=>a+(Number(x.total_amount)||0),0);
+  let autoGCash=(ss||[]).filter(x=>saleCollected(x)&&collectedMethod(x)==='gcash').reduce((a,x)=>a+(Number(x.total)||0),0)
+    +(tt||[]).filter(x=>isGCash(x.payment)).reduce((a,x)=>a+(Number(x.total)||0),0)
+    +fuelCompleted.filter(x=>isGCash(x.payment_method)).reduce((a,x)=>a+(Number(x.total_amount)||0),0);
+  let autoBank=(ss||[]).filter(x=>saleCollected(x)&&collectedMethod(x).includes('bank')).reduce((a,x)=>a+(Number(x.total)||0),0)
+    +(tt||[]).filter(x=>isBank(x.payment)).reduce((a,x)=>a+(Number(x.total)||0),0)
+    +fuelCompleted.filter(x=>isBank(x.payment_method)).reduce((a,x)=>a+(Number(x.total_amount)||0),0);
+
+  financeTransactions=mm||[];
+  let sums={};
+  financeTransactions.forEach(x=>sums[x.transaction_type]=(sums[x.transaction_type]||0)+(Number(x.amount)||0));
+  const incomingTypes=['CASH_IN','BORROWED_CASH','RECEIVABLE_PAYMENT'];
+  const outgoingTypes=['EXPENSE','WITHDRAWAL','PAYABLE_PAYMENT'];
+  let manualCashIn=financeTransactions.filter(x=>incomingTypes.includes(x.transaction_type)&&isCash(x.payment_method)).reduce((a,x)=>a+(Number(x.amount)||0),0);
+  let manualCashOut=financeTransactions.filter(x=>outgoingTypes.includes(x.transaction_type)&&isCash(x.payment_method)).reduce((a,x)=>a+(Number(x.amount)||0),0);
+  let manualGCashNet=financeTransactions.filter(x=>isGCash(x.payment_method)).reduce((a,x)=>a+(incomingTypes.includes(x.transaction_type)?Number(x.amount)||0:outgoingTypes.includes(x.transaction_type)?-(Number(x.amount)||0):0),0);
+  let manualBankNet=financeTransactions.filter(x=>isBank(x.payment_method)).reduce((a,x)=>a+(incomingTypes.includes(x.transaction_type)?Number(x.amount)||0:outgoingTypes.includes(x.transaction_type)?-(Number(x.amount)||0):0),0);
+
+  let cashBalance=autoCash+manualCashIn-manualCashOut;
+  let gCashBalance=autoGCash+manualGCashNet;
+  let bankBalance=autoBank+manualBankNet;
+  let totalAvailableFunds=cashBalance+gCashBalance+bankBalance;
+  let manualReceivables=Math.max(0,(sums.RECEIVABLE||0)-(sums.RECEIVABLE_PAYMENT||0));
+  let receivables=manualReceivables+pendingCollection;
+  let payables=Math.max(0,(sums.BORROWED_CASH||0)-(sums.PAYABLE_PAYMENT||0));
+  let netPosition=totalAvailableFunds+receivables-payables;
+
+  k.innerHTML=`<div class='stat'>Automatic Sales<br><b>${money(automaticSales)}</b></div>
+  <div class='stat'>Cash on Hand<br><b>${money(cashBalance)}</b></div>
+  <div class='stat'>GCash Balance<br><b>${money(gCashBalance)}</b></div>
+  <div class='stat'>Bank Balance<br><b>${money(bankBalance)}</b></div>
+  <div class='stat'>Pending Collection<br><b>${money(pendingCollection)}</b></div>
+  <div class='stat'>Cash Out / Withdrawals<br><b>${money(manualCashOut)}</b></div>
+  <div class='stat'>Available Funds<br><b>${money(totalAvailableFunds)}</b></div>
+  <div class='stat'>Receivables<br><b>${money(receivables)}</b></div>
+  <div class='stat'>Payables<br><b>${money(payables)}</b></div>
+  <div class='stat'>Net Financial Position<br><b>${money(netPosition)}</b></div>`;
+
+  h.innerHTML=financeTransactions.length?`<div class='finance-cards'>${financeTransactions.map(x=>`
+    <div class='finance-card'>
+      <div class='finance-card-head'><div><b>${escapeText(financeTypeLabel(x.transaction_type))}</b><br><small>${new Date(x.created_at).toLocaleString()}</small></div><div class='finance-card-amount'>${money(x.amount)}</div></div>
+      <div class='finance-card-grid'>
+        <div><b>Party / Source</b>${escapeText(x.party_name||'—')}</div>
+        <div><b>Payment Method</b>${escapeText(x.payment_method||'—')}</div>
+        <div><b>Reference / Notes</b>${escapeText([x.reference_no,x.notes].filter(Boolean).join(' • ')||'—')}</div>
+      </div>
+      <button class='finance-delete' onclick='deleteFinanceTransaction(${x.id})'>DELETE TRANSACTION</button>
+    </div>`).join('')}</div>`:'<p>No manual finance transactions recorded yet. Completed sales are already included automatically in the finance summary above.</p>';
+  updateFinanceHint();
+}catch(e){
+  k.innerHTML=`<div class='notice'>Finance data could not be loaded: ${escapeText(e.message)}</div>`;
+  h.innerHTML='';
+}}
+
+init();setTimeout(updateFinanceHint,0);
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(console.warn));
+}
+</script>
+</body></html>
