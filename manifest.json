@@ -1,7 +1,7 @@
 {
-  "name": "Gamay Motorcycle & Auto Supply",
-  "short_name": "Gamay Auto Supply",
-  "description": "Parts, lubricants, accessories, services and fuel \u2014 Gamay, Northern Samar",
+  "name": "Gamay Sales & Services",
+  "short_name": "Gamay Sales",
+  "description": "Motorcycle & car parts, school & office supplies, computers & printers, printing, e-loading, internet services and fuel — Gamay, Northern Samar",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
